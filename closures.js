@@ -49,7 +49,9 @@ console.dir(newObject); */
 
 var arrayFunctions = [];
 
-for(let i = 1 ; i <= 10; i++)
+// New version which uses let variables
+
+/* for(let i = 1 ; i <= 10; i++)
 {
 	arrayFunctions.push(
 		() => {
@@ -57,10 +59,85 @@ for(let i = 1 ; i <= 10; i++)
 			return (increment) => increment + init; 
 		}
 	);
+} */
+
+// Old version with auto-executable functions,  because didn't exist let variables
+for(var i = 1 ; i <= 10; i++)
+{
+	arrayFunctions.push(
+		(function(valor){
+			return function(increment){
+				return increment + valor;
+			}
+		})(i)
+	);
 }
 
-var inc1 = arrayFunctions[0]();
+// Because the stored function into array is auto executable, 
+// we don't need () at the end
+var inc1 = arrayFunctions[0];
 
-console.dir(inc1);
+console.dir(inc1(10));
+
+var vObject = (function(condition){
+	let user = {
+		name: 'levi09',
+		password: '12345',
+		role: 'Admin'
+	};
+
+	return condition ? user : {message: 'Don\'t smoke here'};
+})(false);
+
+console.dir(vObject);
+
+// Return an object with the operation to do
+var op = (function(){
+	let operaciones = {
+		num1: 9,
+		num2: 5,
+		suma: (num1, num2) => num1 + num2,
+		resta: function(num1, num2){
+			return this.num1 - num2
+		}
+	};
+
+	return operaciones;
+})();
+
+console.log(op.resta(10, 4));
+
+function persona(num1, num2)
+{
+	this.num1 = num1 || 0;
+	this.num2 = num2 || 0;
+
+	this.suma = function(num2)
+	{
+		//return this.num1 + num2;
+		
+		let sum = () => {return num1 + num2};
+		return sum();		
+	}
+}
+
+var persona = {
+	name: 'José',
+	age: 25,
+	saludar: function(){
+		console.log('Hello, my name is ' + this.name);
+
+		let funcion = function(name){
+			console.log(name);
+		}.bind(this);
+
+		funcion('Pedrox');
+	}
+};
+
+persona.saludar();
+
+
+
 
 
