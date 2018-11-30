@@ -63,3 +63,27 @@ if(position >= 0)
 	console.dir(newMessage);
 }
 
+/* Video 9: Repeat  */
+
+var word = "hello";
+console.log(word.repeat(2));
+
+const ESPACIOS = 12;
+var names = ["María", "Fernando", "Antonio"];
+var phones = ["87451245","78985621","85451263"];
+
+for(i in names){
+	let dif = ESPACIOS - names[i].length;
+	console.log(`${names[i]}${" ".repeat(dif)}|${phones[i]}`);
+}
+
+// Example: BIll
+ 
+const ZERO = 7; 0000001
+
+var factura = 1000000;
+var dif = ZERO - factura.toString().length;
+
+console.log(`${"0".repeat(dif)}${factura}`);
+
+
