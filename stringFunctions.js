@@ -79,11 +79,43 @@ for(i in names){
 
 // Example: BIll
  
-const ZERO = 7; 0000001
+const ZERO = 7;
 
 var factura = 1000000;
 var dif = ZERO - factura.toString().length;
 
 console.log(`${"0".repeat(dif)}${factura}`);
+
+// Practices includes
+// 
+var furniture = ["table", "mirror", "tv", "radio", "cushion", "curtain", "sofa", "armchair"];
+
+// Verify if an element is into a string
+console.log(furniture.filter(e => e.indexOf("u") >= 0));
+console.log(furniture.filter(e => e.includes("u")));
+
+
+// Verify is a string starts with the string parameter
+console.log(furniture.filter(e => e.substr(0,1) === "a"));
+console.log(furniture.filter(e => e.startsWith("a")));
+
+// Verify is an string finishes with the string parameter
+console.log(furniture.filter(e => e.substr(-1) === "r"));
+console.log(furniture.filter(e => e.endsWith("r")));
+
+// Obtain the first element found with the condition
+console.log(furniture.find(e => e === "sofa"));
+
+// if the searched element is in the array
+if(furniture.some(e => e === "glass"))
+	console.log("Element has been found");
+else
+	console.log('Element has not been found');
+
+// Get a number which will use to repeat a string n times with the repeat function
+let numRepeat = parseInt(prompt("Amout of repetition:", ""));
+
+if(!isNaN(numRepeat))
+	console.log('0'.repeat(parseInt(numRepeat)));
 
 
