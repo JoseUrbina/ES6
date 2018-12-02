@@ -42,3 +42,42 @@ function fnMessage(message)
 execute("Welcome to the Jungle", fnMessage);
 
 console.log(typeof(fnMessage) === "function");
+
+
+function agregar_alumno(arr_alumnos, ...alumnos)
+{
+
+	// Using REST parameter ES6
+	alumnos.forEach(alumno => {
+		arr_alumnos.push(alumno);
+	});
+
+	return arr_alumnos;
+}
+
+let arr_alumnos = ["José"];
+let result = agregar_alumno(arr_alumnos, "Anthony", "María", "Laura", "Pedrox");
+
+console.log(result);
+
+// ******* Error por las restricciones del parametro REST *******
+
+/* function pruebaREST(...Numbers, ...Pueblo)
+{
+
+} */
+
+let arrayStrings;
+
+function pushStrings(arr_string, ...parameters)
+{
+	// Filtrando valores que son tipo string
+	arr_string = parameters.filter(p => typeof(p) === "string");
+
+	return arr_string;
+}
+
+arrayStrings = pushStrings([], "Hello", 23, "Computer", 23.4, true, undefined, "Mice");
+console.log(arrayStrings); 
+
+console.log(Math.sqrt(4));
