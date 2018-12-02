@@ -81,3 +81,18 @@ arrayStrings = pushStrings([], "Hello", 23, "Computer", 23.4, true, undefined, "
 console.log(arrayStrings); 
 
 console.log(Math.sqrt(4));
+
+// *** Video 17: EL operador spread
+
+var numeros = [10, 50, 41, 1, 95, 455];
+
+let numMax = Math.max(...numeros);
+
+console.log(numMax);
+
+function numbers(name = 'Anthony', ...num)
+{
+	console.log(num);
+}
+
+numbers('José',...numeros);
