@@ -132,3 +132,30 @@ student1.name = 'Luisa';
 student1.age = 65;
 
 console.log([student, student1]);
+
+// Video 19: Añadir propiedades a los objetos a partir de otros objetos
+
+function showProperties(){
+
+	let persona1 = {
+		name: 'Luis',
+		age: 24
+	};
+
+	let persona2 = {
+		name: 'María',
+		age:13,
+		married: true,
+		address: 'Villa el Sol',
+		phone: '87451245'
+	};
+
+	persona1 = {
+		...persona2,
+		...persona1
+	};
+
+	return [persona1, persona2];
+}
+
+console.log(showProperties());
