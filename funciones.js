@@ -96,3 +96,39 @@ function numbers(name = 'Anthony', ...num)
 }
 
 numbers('José',...numeros);
+
+
+let persona = {
+	name: 'Jose',
+	message: function(messages){
+		let name = 'Pedrox';
+
+		var fn = function(name){
+			return `${messages} - ${name}`;
+		}.bind(this)
+
+		return fn(name);
+	}
+}
+
+console.log(persona.message('Hello world'));
+
+console.info("*****************************************");
+
+// **** Video 18: ROmper la relacion de referencia de los objetos
+// 
+var student = {
+	name: 'Pedrox',
+	age: 23
+};
+
+// It's a bad form to copy an object to a new variable
+// its values is passed by reference
+var student0 = student;
+
+let student1 = { ...student };
+
+student1.name = 'Luisa';
+student1.age = 65;
+
+console.log([student, student1]);
