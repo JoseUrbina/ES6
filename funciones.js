@@ -159,3 +159,26 @@ function showProperties(){
 }
 
 console.log(showProperties());
+
+console.info('***************************************');
+
+let frutas = ['apple', 'pear'];
+let canast = ['banana', ...frutas ,'grapes', 'watermelon'];
+console.log(canast.join('-'));
+
+// REST
+function showFruits(user, ...fruits){
+	console.log(`${user} has eaten ${fruits}`);
+}
+
+// SPREAD
+function materialBuildings(product, price, amount){
+	console.log(`${product} : ${price} : ${amount}`);
+}
+
+showFruits('Mary', 'apple', 'pear', 'melon');
+materialBuildings(...['Wood', 150.50, 2]);
+
+// Using spread for getting the values of group of hidden input
+let idProducts = [...document.querySelectorAll('.idProducts')];
+console.log(idProducts.map(e => e.value));
