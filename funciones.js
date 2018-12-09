@@ -182,3 +182,105 @@ materialBuildings(...['Wood', 150.50, 2]);
 // Using spread for getting the values of group of hidden input
 let idProducts = [...document.querySelectorAll('.idProducts')];
 console.log(idProducts.map(e => e.value));
+
+// Video 21: Aclarando el doble comportamiento de las funciones ***
+
+console.info("*******************************************");
+
+function personas(name)
+{
+	// THis is a way ES5 lower
+	// if(this instanceof personas)
+	
+	// new.target : If object is declared with new, this will contain new else it's undefined
+	if(typeof new.target !== "undefined")
+	{
+		this.name = name;
+	}
+	else{
+		throw new Error('It is not a persona object');
+	}
+}
+
+var per1 = new personas('José');
+console.log(per1);
+
+
+function furniture(product)
+{
+	if(typeof new.target !== "undefined")
+	{
+		this.product = product;
+	}
+	else{
+		throw new Error("It is not an object");
+	}
+}
+
+var f1 = new furniture("Pen");
+console.log(f1);
+
+//var f2 = furniture('table');
+//console.log(f2);
+
+// .. Video 23: Ejemplos de funciones de flecha
+
+console.info('**************************************************');
+
+let myFunction1 = function(value){
+	return value;
+};
+
+let myFunction2 = value => value;
+
+console.log([myFunction1('José'), myFunction2('Pedrox')]);
+
+let suma1 = function(num1, num2){
+	return num1 + num2;
+}
+
+let suma2 = (num1, num2) => num1 + num2;
+
+console.log([suma1(1,2), suma2(8,9)]);
+
+let greeting1 = function(){
+	return 'Hello World!';
+}
+
+let greeting2 = () => 'Hello World!';
+console.log([greeting1(), greeting2()]);
+
+let saludarPersona1 =  function(name){
+	let sentence = `Hello, ${name}`;
+
+	return sentence;
+};
+
+let saludarPersona2 = name => {
+	let sentence = `Hello, ${name}`;
+	return sentence;
+};
+
+console.log([saludarPersona1('Peter'), saludarPersona2('Ola')]);
+
+// Special case :  return a literal object
+
+let newPersona1 = function(id, name){
+	return {id, name};
+}
+
+let newPersona2 = (id, name) => ({id, name});
+
+console.log(newPersona1(1, 'Lora'), newPersona2(90,' Grace'));
+
+// Video 24: ANonymus functions
+
+console.info('******************************************');
+
+let test1 = (function(name){
+	return `Hello, ${name}`;
+})("Melissa");
+
+let test2 = (name => `Hello, ${name}`)("Karlox");
+
+console.log([test1, test2]);
