@@ -71,3 +71,38 @@ var chair = furniture("Chair", 150.50, true);
 chair.showProductName();
 
 // VIdeo 31: Object.is
+
+console.log("****************");
+
+console.log(5 == 5);
+console.log(5 === "5");
+
+console.log(Object.is(5, "5"));
+
+console.log("****************");
+
+console.log(+0 == -0);
+console.log(+0 === -0);
+console.log(Object.is(+0, -0));
+
+console.log("****************");
+
+var test1 = { a: 1 };
+console.log(test1 === { a: 1 });
+console.log(Object.is(test1, test1));
+
+console.log("****************");
+
+var array1 = [1, 2];
+var array2 = [1, 2];
+
+console.log(array1 === array2);
+console.log(Object.is(array1, array2));
+
+console.log("****************");
+
+console.log(NaN == NaN);
+console.log(NaN === NaN);
+console.log(Object.is(NaN, NaN));
+
+console.log(null === null);
