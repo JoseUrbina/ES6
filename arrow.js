@@ -79,4 +79,10 @@ function Suma(a,b)
 
 Suma(10, 8);
 
+function showName(name)
+{
+	(() => console.log(arguments[0]))(name);
+}
+
+showName("Kastro");
 
