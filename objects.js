@@ -106,3 +106,56 @@ console.log(NaN === NaN);
 console.log(Object.is(NaN, NaN));
 
 console.log(null === null);
+
+// Video 30: Object.assign
+
+let person1 = {
+	["First name"]: "Luis Antonio",
+	age: 90,
+	get active(){
+		return true;
+	}
+};
+
+let person2 = {
+	["First name"]: 'Melissa'
+};
+
+// Object.assign(person2, person1);
+
+person2 = { ...person1,
+			...person2 };
+
+/* function copyObject(objReceptor, objDonator){
+
+	Object.keys(objDonator).forEach(key => {
+		objReceptor[key] = objDonator[key];
+	});
+
+	return objReceptor;
+}; */
+
+// person2 = copyObject(person2, person1);
+
+console.log([person2, person1]);
+
+// VIdeo 32: Ordering
+
+let sortObject = {
+	name: 'José',
+	0: 34,
+	['Second name']: 'Antonio',
+	15: true,
+	"2": 'female'
+};
+
+sortObject['Last Name'] = 'Hugoes';
+sortObject.year = '1993';
+sortObject["1"] = 'Engineer';
+
+console.log(Object.keys(sortObject));
+
+for(let key in sortObject)
+{
+	console.log(key);
+}
