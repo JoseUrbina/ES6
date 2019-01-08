@@ -4,13 +4,16 @@ let persona = {
 	greeting(){
 		return "Hola";
 	},
-	
+	walking(){
+		return `I'm walking on the street`;
+	}
 };
 
 let amigo = {
 	greeting(){
 		// return Object.getPrototypeOf(this).greeting(this) + ", usuario";
-		return super.greeting() + ", usuario";
+		// 2. POdemos usar todas las funciones del padre desde su clase hija con SUPER
+		return super.walking() + ", usuario";
 	}
 }
 
@@ -18,6 +21,9 @@ let amigo = {
 Object.setPrototypeOf(amigo, persona);
 
 console.log(amigo.greeting());
+console.log(amigo.walking());
+
+
 
 // Variable super just works with object JSON Format, or ES6
 
