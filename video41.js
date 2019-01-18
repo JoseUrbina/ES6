@@ -18,3 +18,80 @@ let settings = {
 };
 
 createPlayer("Kraken", settings);
+
+
+/********************************************************************************/
+
+let user = {
+	name: "Joseph",
+	age: 25,
+	performance: {
+		peso: 52,
+		alto: 160,
+		look:{
+			eyes: "brown",
+			hair: "black",
+			nose: "medium"
+		}
+	}
+};
+
+let {name, performance: {peso, alto, look: {hair: pelo, nose: nariz}}, age, email = "josea@gmai.com"} = user;
+
+let colors = ["black", ["yellow", "green", ["blue"]],"brown", "white"];
+
+console.log(name, peso, alto, pelo, nariz, age, email);
+
+let [negro, [amarillo,, [azul]], ...moreColors] = colors;
+console.log(negro, amarillo, azul, moreColors );
+
+function createUser(username, 
+	{age, email, facebook:fb, address} = {age: 18, 
+									   email: "prueba@gmail.com", 
+									   facebook: "prueba.facebok.com",
+									   address: "directionDeprueba"}
+)
+{
+	console.log(username, age, email, fb, address)
+}
+
+
+let newUser = {
+	age: 25,
+	email: "joseantonioug-09@hotmail.com",
+	facebook: "leviatan.09",
+	address: "Ducuali"
+};
+
+createUser("Joseph", newUser);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
