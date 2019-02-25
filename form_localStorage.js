@@ -1,3 +1,20 @@
+let name = Symbol.for("Gozilla");
+let name2 = Symbol.for("Gozilla");
+
+console.log(`Name: ${Symbol.keyFor(name)}`);
+console.log(Object.is(name2, name));
+
+let mapa = new Map([["name", "Joseph"],["lastname", "Guti"],["age", 25]]);
+
+for(let property of mapa)
+{
+	console.log(property[0], property[1]);
+}
+
+
+
+
+
 let formAdd = document.getElementById('formAdd');
 
 fetchMovies();
