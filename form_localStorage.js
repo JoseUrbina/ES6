@@ -11,10 +11,6 @@ for(let property of mapa)
 	console.log(property[0], property[1]);
 }
 
-
-
-
-
 let formAdd = document.getElementById('formAdd');
 
 fetchMovies();
