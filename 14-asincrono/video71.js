@@ -55,6 +55,7 @@ const salarios = [{
 	salario: 3000
 }];
 
+// FUnction that gets X employee by id , then executed a callback
 let getEmpleado = (id, callback) => {
 
 	let empleadoDB = empleados.find(empleado => empleado.id === id);
@@ -65,6 +66,8 @@ let getEmpleado = (id, callback) => {
 		callback(null, empleadoDB);
 };
 
+// Function that gets the salary of X employee by their id,
+// then return a new object or a message in case of error
 let getSalario = (empleado, callback) => {
 
 	let salarioDB = salarios.find(salario => salario.id === empleado.id);
@@ -90,6 +93,8 @@ getEmpleado(3, (err, empleado) => {
 	if(err)
 		return console.error(err);
 
+
+	// Executed 2 callback function
 	getSalario(empleado, (err, datos) => {
 
 		if(err)
