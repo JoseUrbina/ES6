@@ -6,6 +6,5 @@
 
 	echo $render->words(["this", "world","is","beautiful"])
 				->builtPhrase("-")
-				->get(); 
-
+				->get();
 ?>
