@@ -1,7 +1,6 @@
 'use strict';
 		
 $(() => {
-
 	$('#btnSend').on('click', (event) => {
 		event.preventDefault();
 
@@ -19,5 +18,5 @@ $(() => {
 
 		promesa.then(response => $('#message').text(response))
 			   .catch(error => alert(error));
-	});
+	}); 
 });
