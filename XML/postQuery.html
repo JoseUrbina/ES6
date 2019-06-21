@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>POST QUERY</title>
+</head>
+<body>
+	<form id="frmData" method="post" action="" enctype="multipart/form-data">
+		<input type="text" name="name" id="name"><br><br>
+		<input type="number" name="age" id="age"><br><br>
+		<!-- <input type="file" name="image" id="image"><br><br> -->
+		<input type="submit" id="btnSave" value="save">
+	</form>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(() => {
+			async function postData(form)
+			{
+				//let datos = new FormData(form);
+
+				/*let result = await $.ajax({
+					url: "file4.php",
+					method:"POST",
+					data: datos,
+					processData:false,
+					contentType:false
+				}); */
+
+				let datos = {
+					name: $("#name").val(),
+					age: $("#age").val()
+					//image: document.getElementById('image').files[0]
+				}
+
+				let result = $.post("file4.php", datos);
+
+				if(result)
+					return result;
+				else
+					throw new Error('Ha ocurrido un error');
+			}
+
+
+			$('#frmData').on('submit', (e) => {
+				e.preventDefault();
+
+				postData(e.target)
+				.then(response => console.log(response))
+				.catch(error => console.log(error));
+			});
+		});
+	</script>
+</body>
+</html>

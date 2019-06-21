@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Request</title>
+</head>
+<body>
+	<div id="data"></div>
+
+	<script>
+		/*let getMessage = (name) => {
+
+			let request = new XMLHttpRequest();
+			request.open('GET', `files1.php?name=${name}`);
+
+			request.onload = () => {
+				if(request.status >= 4 && request.status <= 200)
+				{
+					let response = request.responseText;
+
+					document.getElementById('data').innerHTML = response;
+				}
+				else
+				{
+					console.log('Ha ocurrido un error');
+				}
+			}
+
+			request.onerror = () => {
+				console.log('Ha ocurrido un error');
+			}
+
+			request.send();
+		};*/	
+
+		let persona = {
+			id: 1,
+			name: "María"
+		};
+
+		/*let fetchData = (person = {id:0, name:"Nothing"}) => 
+		{
+			let params = Object.keys(person).map(e => `${e}=${person[e]}`)
+							   .join("&");
+
+			let request = new XMLHttpRequest();
+
+			request.open('GET', 'file2.php?' + params);
+			request.onload = () => {
+				if(request.status >= 4 && request.status <= 200)
+				{
+					let element = JSON.parse(request.responseText);
+
+					let template = '';
+
+					for(index in element)
+					{	
+						template += `<p><strong>${index}:</strong>${element[index]}</p>`;
+					}
+
+					document.getElementById('data').insertAdjacentHTML('afterbegin', template);
+				}
+			}
+
+			request.onerror = () => {
+				console.log('Ha ocurrido un error');
+			}
+
+			request.send();
+		}*/
+
+		let persona1 = {
+			name: "María",
+			age: 12
+		}; 
+
+		/* let fetchArray = (person = {name:"nothing", age: 0}) => {
+
+			let params = Object.keys(persona1)
+							   .map(key => `${key}=${persona1[key]}`)
+							   .join("&");
+
+			let request = new XMLHttpRequest();
+			request.open("GET", `file3.php?${params}`);
+			
+			request.onload = () => {
+				if(request.status >= 4 && request.status <= 200)
+				{
+					let datos = JSON.parse(request.responseText);
+
+					let template = "";
+
+					datos.forEach((p, i) => {
+						template += `<p>Person ${i+1}</p><br><ul>
+										<li>ID: ${p.id}</li>
+										<li>NAME: ${p.name}</li>
+										<li>AGE: ${p.age}</li>
+									</ul>`;
+					});
+
+					document.getElementById('data').insertAdjacentHTML("afterbegin", template);
+				}
+				else
+				{
+					console.log("Error");
+				}
+			}
+
+			request.onerror = () => console.log('Error');
+
+			request.send();
+
+		}
+
+		window.onload = fetchArray(); */
+		//window.onload = getMessage("Joseph Di Carpio");
+		//window.onload = fetchData(persona);
+	</script>
+</body>
+</html>

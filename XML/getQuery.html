@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GET QUERY</title>
+</head>
+<body>
+	<div id="data"></div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		"use strict"
+
+		$(document).ready(() => {
+
+			/*async function getMessage(name)
+			{
+				return new Promise((resolve, reject) => {
+					$.get(`files1.php?name=${name}`)
+					.then(response => resolve(response))
+					.fail((jqXHR, status) => reject([jqXHR, status]));
+				});
+
+				// Another way to do it
+
+				let resultado = await $.get(`files1.php?name=${name}`);
+
+				if(resultado)
+					return resultado;
+				else
+					throw Error('it has happened an error');
+			} */
+
+			/*getMessage('Joseph Gutiérrez')
+			.then(response => document.getElementById('data')
+									  .insertAdjacentHTML("afterbegin", 
+									  					   response))
+			.catch(error => console.log(error));
+
+			// 2da way
+
+			getMessage('María Perez')
+			.then(response => document.getElementById('data')
+									  .insertAdjacentHTML("afterbegin", 
+									  					   response))
+			.catch(error => console.log(error)); */
+
+			let persona = {
+				id: 1,
+				name: "María"
+			};
+
+			/*async function fetchData(person = {id:0, name: "nothing"})
+			{
+				//let result = await $.get('file2.php', person);
+
+				let result = await $.ajax({
+					url: "file2.php",
+					method:"GET",
+					data: person
+				});
+
+				if(result)
+					return result;
+				else
+					throw Error('Ocurrio un error');
+			}
+
+			fetchData(persona)
+			.then(response => {
+				let template = "";
+
+				for(let index in response)
+				{
+					template += `<p>${index} : ${response[index]}</p>`;
+				}
+
+				document.getElementById('data')
+						.insertAdjacentHTML('afterbegin', template);
+			})
+			.catch(error => console.log(error)); */
+
+			let persona1 = {
+				name: "María",
+				age: 12
+			}; 
+
+			async function fetchArray(person = {name:"nothing", age:0})
+			{
+				let result = await $.get("file3.php", person);
+
+				if(result)
+					return result;
+				else
+					throw Error('Ha ocurrido un error');
+			}
+
+			fetchArray(persona1)
+			.then(response => {
+				let template = "";
+
+				response.forEach((e, i) => {
+					template += `<p>Person ${i}</p><ul>
+									<li>ID: ${e.id}</li>
+									<li>NAME: ${e.name}</li>
+									<li>AGE: ${e.age}</li>
+								 </ul>`;
+				});
+
+				document.getElementById('data')
+						.insertAdjacentHTML('afterbegin', template);
+			})
+			.catch(error => console.log(error));
+		});		
+	</script>
+</body>
+</html>
