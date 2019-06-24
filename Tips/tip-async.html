@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Async - await</title>
+</head>
+<body>
+	<script>
+		// Ex. get 3 random number asyncronous and returning a result
+
+		const random = () => {
+			return Promise.resolve(Math.random());
+		};
+
+		// BAD WAY : Using promise
+		/*const sumAsyncRandom = () => {
+			let first, second, third;
+
+			return random()
+				   .then(v => {
+				   		first = v;
+				   		return random();
+				   })
+				   .then(v => 
+				   {
+				   		second = v;
+				   		return random();
+				   })
+				   .then(v => {
+				   		third = v;
+				   		return first + second + third;
+				   })
+				   .then(v => console.log(`Result: ${v}`));
+		};
+
+		sumAsyncRandom();*/
+
+		// GOOD WAY : USING ASYNC- AWAIT
+		
+		const sumAsyncRandom = async() => {
+			let first = await random();
+			let second = await random();
+			let third = await random();
+
+			let result = first + second + third;
+
+			if(result < 2)
+				throw new Error(`Error: value is less than 2`);
+			else
+				return result;
+		};
+
+		sumAsyncRandom()
+		.then(r => console.log(`Result: ${r}`))
+		.catch(e => console.log(e));	
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tip continue..</title>
+</head>
+<body>
+	<script>
+		// 8Tip: use spread with object properties
+	
+		let pikachu = {name: "pikachu"};
+		let stats = {hp: 50, attack: 34, defense: 65};
+
+		// a bad way
+		//const lvl0 = Object.assign(pikachu, stats);
+		//const lvl1 = Object.assign(pikachu, {hp: 89});
+
+		// Good way to assign properties of an object is this
+		const lvl0 = { ...pikachu, ...stats };
+		const lvl1 = { ...pikachu, hp: 34};
+
+		let user = {name: "Goliath", skills: ["jumping, pierce"]};
+		let stat  = {hp: 78, attack: 89, defense: 56};
+
+		let player1 = { ...user, ...stat};
+		let player2 = { ...user, hp:98, magic: 75};
+
+		console.log({player1, player2});
+		//console.log([lvl0, lvl1]);
+		
+		// 9Tip: Use spread with array
+		 
+		let fruits = ["watermelon", "mango", "apple",];
+
+		// bad way
+		/*fruits.push("pear");
+		fruits.push("banana");
+		fruits.push("strawberries");
+
+		console.log(fruits);*/
+
+		// GOOD WAY :  we can concat values in any place
+		
+		//fruits = [ "pear", ...fruits, "banana", "Melon",];
+		//shift
+		//fruits = [...fruits, "mango", "Melon", "Banana"];
+		//push
+		fruits = ["pear", "Melon", "banana", ...fruits];
+		console.log(fruits);
+	</script>
+</body>
+</html>

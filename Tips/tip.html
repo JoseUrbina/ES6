@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tips Javascript</title>
+</head>
+<body>
+	<script>
+		
+		/*const person1 = {name: "Perry", "age": 12};
+		const person2 = {name: "Carlos", "age": 43};
+		const person3 = {name: "Antonio", "age": 54};*/
+
+		/*const people = [
+			{name: "Perry", "age": 12},
+			{name: "Carlos", "age": 43},
+			{name: "Antonio", "age": 54}
+		];
+
+		console.table(people);*/
+
+		const foo = {name:"Tom", age: 34, nervous: false};
+		const bar = {name:"Lucas", age: 90, nervous: false};
+		const baz = {name:"Mary", age: 12, nervous: true};
+
+		//1er Tip
+		
+		console.log({foo, bar, baz});
+
+		// 3er tip : console.log("%c string", css); 
+		// %c allows us to apply cc
+		
+		console.log("%c My old friends", 
+					"color:red; font-weight:bold;");
+
+		/*console.log(foo);
+		console.log(bar);
+		console.log(baz);*/
+
+		// 2do Tip : console.table([object1, object2,..]);
+		
+		console.table([foo, bar, baz]);
+
+		console.log("%c Previous information", 
+					"color:orange;font-weight:bold;");
+
+		// 4tip :  function console.time() and console.timeEnd();
+		console.log("%c ------ TIME ------", "color:blue;");
+
+		console.time("looper");
+		let i = 0;
+		while(i < 1000000000){i++;};
+		console.timeEnd("looper");
+
+		// 5tip: console.trace(any data); : show us position
+		// of function and where was used it
+		console.log("%c ------ TRACE -------", "color:blue;");
+
+		let greetings = () => console.trace("Hello, newy");
+		greetings();
+
+		greetings();
+
+		// 6tip: how to send and use correctly an object in a function
+		console.log("%c ------ DESTRUCTING ------", "color:red;");
+
+		const turtle = {
+			name:"Peter",
+			legs: 4,
+			shell: true,
+			type: "amphibious",
+			meal: 10,
+			diet: "berries",
+		};
+
+		function feed1(animal)
+		{
+			// Bad way: because repeating object animal
+			
+			return `Feed ${animal.name} ${animal.meal} kilos of ${animal.diet}`;
+		}
+
+		// 2 better ways to do the function 1 with destructuring
+		function feed2({name, meal, diet})
+		{
+			// first way
+			return `Feed ${name} ${meal} kilos of ${diet}`;
+		}
+
+		function feed3(animal)
+		{
+			// second way: destructuring into the function
+			const {name, meal, diet} = animal;
+
+			return `Feed ${name} ${meal} kilos of ${diet}`;
+		}
+
+		console.log(feed1(turtle));
+		console.log(`%c ${feed2(turtle)}`, "color:yellow;");
+		console.log(`%c ${feed3(turtle)}`, "color:green;");
+
+		console.log("%c ------ TEMPLATE STRINGS ------", 
+					"color:red;");
+
+		const horse = {
+			name: "Topher",
+			size: "large",
+			skills: ["jousting", "racing"],
+			age: 7
+		};
+
+		/****
+		    7tip: use template strings instead of used the old mode to show and concat string ""
+		*****/
+
+		// bad strings
+		
+		let bio1 = horse.name + " is a " + horse.size + " horse skilled in " + horse.skills.join(" & ");
+
+		// good strings
+		const {name, size, skills} = horse;
+
+		let bio2 = `${name} is a ${size} horse skilled in ${skills.join(" & ")}`;
+
+		console.log({bio1, bio2});
+
+		// Advanced tag example
+		
+		function horseAge(str, age)
+		{
+			let ageStr = age > 5 ? "old" : "young";
+			return `${str[0]}${ageStr} at ${age} years`;
+		}
+
+		let bio3 = horseAge`This horse is ${horse.age}`;
+		console.log(`%c ${bio3}`, "color:#786545;");
+
+		// example 
+		
+		let student = {
+			nickname: "Brand",
+			age: 15,
+			classes:["spanish", "Math", "Psicology"],
+		};
+
+		// bad way
+		let bio4 = student.nickname + "is " + student.age + " years, and receive the classes " + student.classes.join(" & ");
+
+		const {nickname, age, classes} = student;
+		let bio5 = `${nickname} is ${age} years, and receive the classes ${classes.join(" & ")}`;
+
+		console.log({bio4, bio5});
+
+		function studentAge(str, age)
+		{
+			let strAge = age > 18 ? "old" : "young";
+
+			return `${str[0]}${strAge} at ${age} years`;
+		}
+
+		let bio6 = studentAge`Student is ${student.age}`;
+
+		console.log(`%c ${bio6}`, "color:brown;font-weight:bold;");
+	</script>
+</body>
+</html>

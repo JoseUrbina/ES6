@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Loops</title>
+</head>
+<body>
+	<script>
+		
+		let orders = [54, 675, 98, 1234];
+
+		//let total = 0;
+		//let withTax = [];
+		//let highValues = [];
+
+		// bad way
+		
+		/*for(let i = 0; i < orders.length; i++)
+		{
+			// reduce
+			total += orders[i];
+
+			// map
+			withTax.push(orders[i] * 1.1);
+
+			// filter
+			if(orders[i] > 100)
+			{
+				highValues.push(orders[i]);
+			}
+		}
+
+		console.log({total, withTax, highValues});*/
+
+		// GOOD WAY :  we can use function like reduce(), map(),
+		//  filter() to get the next results
+		
+		let total = orders.reduce((acc, value) => acc + value);
+		let withTax=orders.map(v => parseFloat((v * 1.1).toFixed(2)));
+		let highValues = orders.filter(v => v > 100);
+
+		console.log({total, withTax, highValues});
+
+		// ANOTHER EXAMPLE
+
+		let numbers = [1, 5, 2, 6, 7, 8, 23, 56, 10, 11];
+
+		let sum = numbers.reduce((acc, value) => acc + value);
+		let tax = numbers.map(v => v * 0.15);
+		let notPrimos = numbers.filter(v => v % 2 !== 0);
+
+		console.log({sum, tax, notPrimos});
+	</script>
+</body>
+</html>
